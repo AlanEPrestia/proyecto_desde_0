@@ -1,0 +1,37 @@
+{% extends 'AppCoder/padre.html' %}
+{% load static %}
+
+{% block title %}Formulario Curso{% endblock %}
+
+{% block contenido %}
+{% if miFormulario.errors %}
+    <div class="alert alert-danger text-center" role="alert">
+        Están mal los datos, revisar
+    </div>
+{% endif %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4">Agregar Curso</h3>
+
+                    <form method="POST" action="{% url 'cursoFormulario2' %}">
+                        {% csrf_token %}
+                        <table class="table table-borderless">
+                            {{ miFormulario.as_table }}
+                        </table>
+                        <div class="d-grid">
+                            <input type="submit" class="btn btn-primary" value="Enviar">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+       
+{% endblock %}

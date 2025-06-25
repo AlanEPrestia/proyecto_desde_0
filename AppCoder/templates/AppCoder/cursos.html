@@ -1,12 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cursos</title>
-</head>
-<body style="background-color: blue;">
+{% extends 'AppCoder/padre.html' %}
+{% load static %}
+
+{% block title %}Cursos {% endblock %}
+
+{% block contenido %}
+
+    <header class="masthead">
+                <div class="container position-relative">
+                    
+                    <div class="row justify-content-center">
+                        <div class="col-xl-6">
+                            <div class="text-center text-white">
+                                <!-- Page heading-->
+                                <h1 class="mb-5">¡Cursos!</h1>    
+                                <p class="mb-5">Aquí encontrarás una lista de los cursos disponibles.</p>
+                                <p class="mb-5">UN EJEMPLO</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </header>
     
-</body>
-</html>
+{% endblock contenido %}
