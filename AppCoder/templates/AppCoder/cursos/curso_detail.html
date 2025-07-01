@@ -1,0 +1,33 @@
+{% extends 'AppCoder/padre.html' %}
+{% load static %}
+
+{% block title %}Cursos{% endblock %}
+
+{% block contenido %}
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <h4 class="card-title text-center mb-4">📘 Detalle del Curso</h4>
+
+                    <ul class="list-group list-group-flush mb-3">
+                        <li class="list-group-item">
+                            <strong>Nombre del Curso:</strong> <i>{{ curso.nombre }}</i>
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Camada:</strong> <i>{{ curso.camada }}</i>
+                        </li>
+                    </ul>
+
+                    <div class="text-center">
+                        <a href="{% url 'cursos' %}" class="btn btn-outline-primary">← Regresar a la lista</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

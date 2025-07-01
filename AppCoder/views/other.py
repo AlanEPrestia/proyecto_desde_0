@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import Curso
-from .forms import CursoFormulario
+from ..models import Curso,Profesor
+from ..forms import CursoFormulario, ProfesorFormulario
 from django.http import HttpResponse
 
 
@@ -52,3 +52,22 @@ def buscar(request):
 
         # No olvidar from django.http import HttpResponse
         return HttpResponse(respuesta)
+    
+def profesorFormulario(request):
+
+    if request.method == 'POST':
+        miFormulario = ProfesorFormulario(request.POST)  # aquí llega toda la información del html
+        if miFormulario.is_valid():  # Si pasó la validación de Django
+            informacion = miFormulario.cleaned_data
+            profesor = Profesor(
+                nombre=informacion['nombre'],
+                apellido=informacion['apellido'],
+                email=informacion['email'],
+                profesion=informacion['profesion']
+            )
+            profesor.save()
+            return render(request, "AppCoder/index.html")  # Vuelvo al inicio o a donde quieran
+    else:
+        miFormulario = ProfesorFormulario()  # Formulario vacío para construir el html
+
+    return render(request, "AppCoder/formulario/profesorFormulario.html", {"miFormulario": miFormulario})
